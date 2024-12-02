@@ -1,0 +1,30 @@
+<div>
+  <h1 class="h1 p-0">Tu as été invité à <%=@event.name%> <i class="fa-solid fa-hands-clapping text-yellow-400"></i></h1>
+  <h2 class="h2 text-center"><i class="fa-solid fa-calendar mr-2 text-yellow-400"></i> Le <%=I18n.l(@event.date, format: :long)%></h2>
+  <h2 class="h2"><i class="fa-solid fa-film mr-2 text-yellow-400"></i> Choisis ton film </h2>
+  <div class="w-100 flex flex-col gap-y-2 mb-8">
+    <div class="bg-zinc-800 p-2 rounded-md mb-3">
+      <%@movies.each do |movie| %>
+        <div class="flex w-100 mb-2" data-controller="vote" data-action="click->vote#buttonYellow" data-vote-target="cards">
+          <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_url %>" alt="<%= movie.name %>" class="h-28 rounded-l-md">
+          <div class="bg-zinc-800 grow px-4 py-3 rounded-r-md flex items-center">
+            <div>
+              <h3><%= movie.name %></h3>
+            </div>
+            <div class="grow"></div>
+            <i class="fa-solid fa-angle-right text-yellow-400 mr-2"></i>
+          </div>
+        </div>
+        <%= link_to 'Sélectionner ce film', '#', data: { movie_id: movie.id, event_id: @event.id } %>
+        <%= "Movie ID: #{movie.id}, Event ID: #{@event.id}" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= form_with url: movie_event_path(), method: :patch, id: "hidden-form", class: "hidden" do |f| %>
+  <%= f.hidden_field :movie_id, id: "movie-id" %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+<% end %>
+<p>Movie ID: <%= @movie_id %></p>
+<p>Event ID: <%= @event.id %></p>
+<button class="button items-center">Valider</button>

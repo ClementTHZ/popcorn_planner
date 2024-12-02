@@ -21,6 +21,14 @@ class EventsController < ApplicationController
     }]
   end
 
+  def vote
+    @event = Event.find(params[:id])
+    @movies = @event.movies
+    @user = @event.user
+    @users = User.all
+    @movie_event = MovieEvent.find()
+  end
+
   def new
   end
 

@@ -4,11 +4,12 @@ require "json"
 puts "Reset de la DB !"
 
 Member.destroy_all
-Event.destroy_all
+MovieComment.destroy_all
 MovieEvent.destroy_all
+Event.destroy_all
+Group.destroy_all
 Movie.destroy_all
 User.destroy_all
-Group.destroy_all
 
 puts "Création des Users !"
 

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :groups, only: [:index, :show, :new, :create, :delete]
   resources :events, only: [:index, :show, :new, :create, :delete]
+  get "/events/vote/:id", to: "events#vote", as: :vote
   resources :movies, only: [:index, :show]
+  resources :movie_events, only: [:update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

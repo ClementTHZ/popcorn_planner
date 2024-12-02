@@ -7,8 +7,7 @@
     <% @movies.each do |movie| %>
       <%= link_to movie_path(movie) do %>
         <div class="flex w-100">
-          <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_url %>" alt="<%= movie.name %>" class="h-28 rounded-l-md
-">
+          <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_url %>" alt="<%= movie.name %>" class="h-28 rounded-l-md">
           <div class="bg-zinc-800 grow px-4 py-3 rounded-r-md flex items-center">
             <div>
               <h3><%= movie.name %></h3>
