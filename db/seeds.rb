@@ -1,3 +1,11 @@
+Member.destroy_all
+MovieComment.destroy_all
+MovieEvent.destroy_all
+Event.destroy_all
+Group.destroy_all
+Movie.destroy_all
+User.destroy_all
+
 users = []
 
 10.times do |i|
@@ -6,13 +14,6 @@ end
 p "ok"
 User.insert_all(users)
 
-Member.destroy_all
-MovieComment.destroy_all
-MovieEvent.destroy_all
-Event.destroy_all
-Group.destroy_all
-Movie.destroy_all
-User.destroy_all
 movies = []
 
 10.times do |i|

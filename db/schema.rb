@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_29_130310) do
 
   create_table "movie_events", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.bigint "movie_id", null: false
+    t.bigint "movie_id"
     t.boolean "selected_movie", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -124,7 +124,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_29_130310) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.bigint "movie_event_id", null: false
+    t.bigint "movie_event_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

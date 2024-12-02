@@ -23,10 +23,10 @@ class EventsController < ApplicationController
 
   def vote
     @event = Event.find(params[:id])
-    @movies = @event.movies
+    @movies = @event.list_movies
     @user = @event.user
     @users = User.all
-    @movie_event =
+
   end
 
   def new
