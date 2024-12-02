@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     @movies = @event.movies
     @user = @event.user
     @users = User.all
-    @movie_event = MovieEvent.find()
+    @movie_event =
   end
 
   def new

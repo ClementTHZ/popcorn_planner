@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :new, :create, :delete]
   resources :events, only: [:index, :show, :new, :create, :delete]
   get "/events/vote/:id", to: "events#vote", as: :vote
-  resources :movies, only: [:index, :show]
   resources :movie_events, only: [:update]
+  resources :movies, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
